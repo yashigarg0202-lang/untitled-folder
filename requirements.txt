@@ -1,0 +1,2 @@
+# SoulSync Web Application
+# Server uses Python Standard Library (no external dependencies required)

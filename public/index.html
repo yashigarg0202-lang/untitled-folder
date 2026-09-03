@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoulSync — Bay Leaf Manifestation by Pooja Garg</title>
+  <meta name="description" content="Turn Your Intentions into Reality with SoulSync. Simple, guided energy practices to help you fulfill your personal wishes, career goals, and lifelong desires by Pooja Garg.">
+  <!-- Android & Mobile PWA Meta Tags -->
+  <meta name="theme-color" content="#121018">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="application-name" content="SoulSync">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg">
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating Install Android App Banner / Button -->
+  <div class="android-install-banner" id="androidInstallBanner" hidden>
+    <div class="install-banner-inner">
+      <div class="install-app-icon">
+        <span class="android-robot-leaf">🤖🌿</span>
+      </div>
+      <div class="install-text">
+        <strong>Install SoulSync App</strong>
+        <span>Get instant access on your Android home screen</span>
+      </div>
+      <button class="btn btn-gold btn-sm" id="installPwaBtn">Install</button>
+      <button class="banner-dismiss-btn" id="dismissInstallBtn" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+
+  <!-- Ambient Particle Canvas for Sacred Stardust -->
+  <canvas id="sacredCanvas" class="sacred-canvas" aria-hidden="true"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="header-nav" id="headerNav">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="SoulSync Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 48 48" class="sacred-leaf-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M24 6C24 6 36 14 36 26C36 34 30.5 40 24 42C17.5 40 12 34 12 26C12 14 24 6 24 6Z" fill="url(#leafGrad)" fill-opacity="0.3" stroke="url(#goldGrad)" stroke-width="1.8"/>
+            <path d="M24 10V38" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M24 18L31 23M24 24L32 29M24 30L29 34M24 18L17 23M24 24L16 29M24 30L19 34" stroke="url(#goldGrad)" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="24" cy="14" r="2.5" fill="#FFE28A"/>
+            <defs>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F9E2AF"/>
+                <stop offset="0.5" stop-color="#D4AF37"/>
+                <stop offset="1" stop-color="#AA771C"/>
+              </linearGradient>
+              <linearGradient id="leafGrad" x1="12" y1="6" x2="36" y2="42" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#52B788"/>
+                <stop offset="1" stop-color="#D4AF37"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="aura-pulse"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">SoulSync</span>
+          <span class="brand-sub">Bay Leaf Manifestation</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links" id="navMenu" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link">Energy Orb</a>
+        <a href="#about-pooja" class="nav-link">About Pooja</a>
+        <a href="#benefits" class="nav-link">Benefits</a>
+        <a href="#process" class="nav-link">3-Step Flow</a>
+        <a href="#session-fee" class="nav-link">Fee &amp; Connect</a>
+        <a href="#register" class="nav-link">Set Intention</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- 528Hz Solfeggio Meditation Sound Toggle -->
+        <button id="soundToggle" class="sound-toggle-btn" title="Toggle 528Hz Solfeggio Harmonic Ambience" aria-label="Toggle Solfeggio Meditation Sound">
+          <span class="sound-icon" id="soundIcon">🔇</span>
+          <span class="sound-label">528Hz Tone</span>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#register" class="btn btn-gold glow-hover" id="navRegisterBtn">
+          <span>Set Intention</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-nav-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tagline Banner -->
+  <div class="top-tagline-bar">
+    <div class="container tagline-inner">
+      <span class="sparkle-icon">✦</span>
+      <p class="tagline-text">
+        <strong>SoulSync</strong>, hosted by <strong>Pooja Garg</strong> (Prana Healing Trainer, Numerologist, &amp; Tarot Card Reader)
+      </p>
+      <span class="sparkle-icon">✦</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================================= -->
+    <!-- 1. VISUAL & INTERACTIVE HERO SECTION (ENERGY ORB & NODE DIAGRAM) -->
+    <!-- ========================================================================= -->
+    <section class="hero-interactive-section" id="hero">
+      <div class="container hero-container">
+        <!-- Minimal Headline & Hook -->
+        <div class="hero-header-center text-center">
+          <div class="hero-pill-badge">
+            <span class="badge-dot"></span>
+            <span>Interactive Cosmic Energy Portal</span>
+          </div>
+          <h1 class="hero-title">
+            Turn Your Intentions into Reality with <span class="gradient-text-gold">SoulSync</span>
+          </h1>
+          <p class="hero-subtitle">
+            Simple, guided energy practices to help you fulfill your personal wishes, career goals, and lifelong desires.
+          </p>
+        </div>
+
+        <!-- Interactive Energy Orb / Node Diagram Container -->
+        <div class="orb-diagram-wrapper">
+          <div class="orb-diagram-stage">
+            <!-- Background Cosmic Orbit Rings -->
+            <div class="cosmic-ring ring-1"></div>
+            <div class="cosmic-ring ring-2"></div>
+            <div class="cosmic-ring ring-3"></div>
+
+            <!-- Central Glowing Energy Orb / Sacred Bay Leaf -->
+            <div class="central-energy-orb" id="centralOrb" title="Tap center to pulse manifestation energy">
+              <div class="orb-core">
+                <div class="orb-leaf-art">
+                  <svg viewBox="0 0 100 140" class="mini-leaf-svg">
+                    <path d="M50 10 C50 10 85 40 85 85 C85 115 70 135 50 138 C30 135 15 115 15 85 C15 40 50 10 50 10 Z" 
+                          fill="url(#leafGradGoldHero)" stroke="#FFE28A" stroke-width="1.8"/>
+                    <path d="M50 18 L50 130" stroke="#FFF3B0" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M50 40 L72 55 M50 65 L78 82 M50 90 L74 108 M50 40 L28 55 M50 65 L22 82 M50 90 L26 108" 
+                          stroke="#FFF3B0" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+                    <circle cx="50" cy="70" r="8" fill="#FFFBE6" opacity="0.95"/>
+                    <text x="50" y="74" text-anchor="middle" font-family="'Cinzel', serif" font-size="9" fill="#7A5600" font-weight="bold">ॐ</text>
+                    <defs>
+                      <linearGradient id="leafGradGoldHero" x1="0" y1="0" x2="100" y2="140" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FFE898"/>
+                        <stop offset="0.5" stop-color="#D4AF37"/>
+                        <stop offset="1" stop-color="#2D6A4F"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="orb-aura-glow"></div>
+              </div>
+              <span class="orb-center-label">SOULSYNC ALCHEMY</span>
+            </div>
+
+            <!-- 4 Clickable Orbital Nodes -->
+            <!-- Node 1: Abundance (Top Left) -->
+            <button type="button" class="orb-node node-abundance active" data-node="abundance" id="nodeAbundance" aria-label="Unlock Abundance">
+              <div class="node-icon-circle">
+                <span class="node-emoji">💰</span>
+              </div>
+              <span class="node-title">Unlock Abundance</span>
+              <div class="node-pulse"></div>
+            </button>
+
+            <!-- Node 2: Blockages (Top Right) -->
+            <button type="button" class="orb-node node-blockages" data-node="blockages" id="nodeBlockages" aria-label="Clear Blockages">
+              <div class="node-icon-circle">
+                <span class="node-emoji">🧘</span>
+              </div>
+              <span class="node-title">Clear Blockages</span>
+              <div class="node-pulse"></div>
+            </button>
+
+            <!-- Node 3: Clarity (Bottom Left) -->
+            <button type="button" class="orb-node node-clarity" data-node="clarity" id="nodeClarity" aria-label="Find Clarity">
+              <div class="node-icon-circle">
+                <span class="node-emoji">💡</span>
+              </div>
+              <span class="node-title">Find Clarity</span>
+              <div class="node-pulse"></div>
+            </button>
+
+            <!-- Node 4: Relationships (Bottom Right) -->
+            <button type="button" class="orb-node node-relationships" data-node="relationships" id="nodeRelationships" aria-label="Harmonize Relationships">
+              <div class="node-icon-circle">
+                <span class="node-emoji">❤️</span>
+              </div>
+              <span class="node-title">Harmonize Love</span>
+              <div class="node-pulse"></div>
+            </button>
+          </div>
+
+          <!-- Dynamic 1-Sentence Node Detail Card (Updates on Hover/Tap) -->
+          <div class="node-detail-panel glass-panel" id="nodeDetailPanel">
+            <div class="detail-header">
+              <span class="detail-badge" id="detailBadge">💰 UNLOCK ABUNDANCE</span>
+              <span class="detail-hint">✦ Click any orb node to inspect energy shift</span>
+            </div>
+            <p class="detail-text" id="detailText">
+              Attract financial growth, open unexpected career avenues, and remove ancestral money limitations into effortless prosperity.
+            </p>
+            <div class="detail-cta-row">
+              <a href="#register" class="btn btn-primary-gold btn-sm" id="detailCta">Manifest This Wish →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- HIGHLIGHTED SECTION: ABOUT POOJA GARG -->
+    <!-- ========================================================================= -->
+    <section class="about-pooja-section" id="about-pooja">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge badge-gold">✨ Energy Practitioner Spotlight</span>
+          <h2 class="section-title">Meet <span class="gradient-text-gold">Pooja Garg</span></h2>
+          <p class="section-subtitle">
+            Energy Healer • Prana Healing Trainer • Certified Numerologist • Master Tarot Card Reader
+          </p>
+        </div>
+
+        <!-- Highlighted Practitioner Card -->
+        <div class="pooja-spotlight-card glass-panel glow-border">
+          <div class="spotlight-grid">
+            <!-- Left: Avatar & Badges Column -->
+            <div class="practitioner-portrait-col">
+              <div class="pooja-avatar-portal">
+                <div class="avatar-ring-outer"></div>
+                <div class="avatar-ring-inner">
+                  <span class="avatar-initials-large">PG</span>
+                </div>
+                <div class="avatar-aura-glow"></div>
+              </div>
+
+              <h3 class="practitioner-name">Pooja Garg</h3>
+              <p class="practitioner-title">Founder &amp; Energy Alchemist, SoulSync</p>
+              
+              <div class="practitioner-trust-box">
+                <div class="trust-stars">★★★★★</div>
+                <span class="trust-label">100% Personal Human-to-Human</span>
+              </div>
+
+              <div class="online-status-badge">
+                <span class="status-dot"></span>
+                <span>Active &amp; Guiding Intentions</span>
+              </div>
+            </div>
+
+            <!-- Right: Bio & 3 Core Disciplines Column -->
+            <div class="practitioner-bio-col">
+              <p class="pooja-bio-lead">
+                With years of dedicated practice in subtle energy mechanics and sacred botanical wisdom, <strong>Pooja Garg</strong> bridges ancient mystical rituals with practical life transformation. Her mission is to help you dissolve subconscious obstacles, align your personal energy, and turn your deepest wishes into tangible reality.
+              </p>
+
+              <!-- 3 Core Discipline Cards -->
+              <div class="disciplines-grid">
+                <!-- Discipline 1: Energy Healer & Trainer -->
+                <div class="discipline-card glass-panel">
+                  <div class="discipline-icon-wrap emerald-icon">
+                    <span>🧘</span>
+                  </div>
+                  <div class="discipline-info">
+                    <h4 class="discipline-name">Energy Healer &amp; Prana Trainer</h4>
+                    <p class="discipline-desc">
+                      Certified Prana Healing Trainer skilled at detecting auric imbalances, dissolving energetic static, and clearing emotional baggage to restore natural vitality.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Discipline 2: Numerologist -->
+                <div class="discipline-card glass-panel">
+                  <div class="discipline-icon-wrap gold-icon">
+                    <span>🔢</span>
+                  </div>
+                  <div class="discipline-info">
+                    <h4 class="discipline-name">Master Numerologist</h4>
+                    <p class="discipline-desc">
+                      Decodes your personal birth vibration, life path numbers, and cosmic planetary transits to schedule your bay leaf rituals for maximum acceleration.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Discipline 3: Tarot Card Reader -->
+                <div class="discipline-card glass-panel">
+                  <div class="discipline-info-full">
+                    <div class="discipline-header-inline">
+                      <div class="discipline-icon-wrap purple-icon">
+                        <span>🔮</span>
+                      </div>
+                      <h4 class="discipline-name">Intuitive Tarot Card Reader</h4>
+                    </div>
+                    <p class="discipline-desc">
+                      Provides deep intuitive guidance for career crossroads, relationships, and hidden blocks, giving you absolute clarity and peace of mind on your path.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Highlight Quote Box -->
+              <div class="pooja-quote-box">
+                <span class="quote-mark">“</span>
+                <p class="quote-text">
+                  Energy is the invisible blueprint of reality. When you align your inner frequency with focused intention and sacred bay leaf fire alchemy, breakthroughs stop being accidental — they become your natural reality.
+                </p>
+                <span class="quote-author">— Pooja Garg</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pooja-actions-row">
+                <a href="#register" class="btn btn-primary-gold btn-lg glow-pulse">
+                  <span>Register for a Session with Pooja ✨</span>
+                </a>
+                <a href="https://wa.me/?text=Hello%20Pooja%20Garg,%20I%20would%20like%20to%20know%20more%20about%20your%20manifestation%20and%20energy%20sessions." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-whatsapp btn-lg">
+                  <span>Chat on WhatsApp ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2. DYNAMIC FEATURE CAROUSEL / 4-CARD BENEFIT GLOW CARDS -->
+    <!-- ========================================================================= -->
+    <section class="benefits-interactive-section" id="benefits">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge badge-emerald">Interactive Energy Shifts</span>
+          <h2 class="section-title">How Manifestation Helps You</h2>
+          <p class="section-subtitle">
+            Hover or tap each card to explore the targeted energetic shifts in your daily life.
+          </p>
+        </div>
+
+        <div class="interactive-cards-grid">
+          <!-- Card 1: Fulfill Important Wishes -->
+          <div class="feature-flip-card glass-panel" tabindex="0">
+            <div class="card-glow-edge"></div>
+            <div class="card-icon-header">
+              <div class="icon-avatar-badge gold-badge">
+                <span class="feature-icon">🎯</span>
+              </div>
+              <span class="category-pill">Wish Realization</span>
+            </div>
+            <h3 class="card-heading">Fulfill Important Wishes</h3>
+            <p class="card-1liner">
+              Fast-track career promotions, academic exam success, and business milestones with laser-focused intent.
+            </p>
+            <div class="card-footer-metric">
+              <span class="metric-spark">✦</span>
+              <span>Directs subconscious energy to outcomes</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Remove Energy Blockages -->
+          <div class="feature-flip-card glass-panel" tabindex="0">
+            <div class="card-glow-edge"></div>
+            <div class="card-icon-header">
+              <div class="icon-avatar-badge emerald-badge">
+                <span class="feature-icon">🔓</span>
+              </div>
+              <span class="category-pill">Subconscious Reset</span>
+            </div>
+            <h3 class="card-heading">Remove Energy Blockages</h3>
+            <p class="card-1liner">
+              Dissolve hidden doubts, anxiety, and self-limiting patterns that quietly hold you back.
+            </p>
+            <div class="card-footer-metric">
+              <span class="metric-spark">✦</span>
+              <span>Pranic cleansing dissolves aura static</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Speed Up Results -->
+          <div class="feature-flip-card glass-panel" tabindex="0">
+            <div class="card-glow-edge"></div>
+            <div class="card-icon-header">
+              <div class="icon-avatar-badge amber-badge">
+                <span class="feature-icon">⚡</span>
+              </div>
+              <span class="category-pill">Speed &amp; Sync</span>
+            </div>
+            <h3 class="card-heading">Speed Up Results</h3>
+            <p class="card-1liner">
+              Align your energetic frequency with sacred bay leaf fire rituals to attract synchronicities faster.
+            </p>
+            <div class="card-footer-metric">
+              <span class="metric-spark">✦</span>
+              <span>Sacred botanicals amplify vibration</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Clarity & Inner Peace -->
+          <div class="feature-flip-card glass-panel" tabindex="0">
+            <div class="card-glow-edge"></div>
+            <div class="card-icon-header">
+              <div class="icon-avatar-badge cyan-badge">
+                <span class="feature-icon">🪷</span>
+              </div>
+              <span class="category-pill">Intuitive Peace</span>
+            </div>
+            <h3 class="card-heading">Clarity &amp; Inner Peace</h3>
+            <p class="card-1liner">
+              Remove confusion and brain fog so you feel grounded, aligned, and confident on your true path.
+            </p>
+            <div class="card-footer-metric">
+              <span class="metric-spark">✦</span>
+              <span>Total directional certainty &amp; calm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. INTERACTIVE 3-STEP PROCESS FLOW COMPONENT -->
+    <!-- ========================================================================= -->
+    <section class="process-flow-section" id="process">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge badge-gold">Guided Journey</span>
+          <h2 class="section-title">Interactive 3-Step Process Flow</h2>
+          <p class="section-subtitle">
+            Click each step to view the energetic micro-preview.
+          </p>
+        </div>
+
+        <!-- Interactive Stepper Track -->
+        <div class="stepper-component-wrap">
+          <div class="stepper-track-bar">
+            <div class="stepper-progress-fill" id="stepperProgressFill"></div>
+          </div>
+
+          <div class="stepper-nodes-row">
+            <!-- Step 1 Node -->
+            <button type="button" class="step-interactive-node active" data-step="1" id="stepNode1">
+              <div class="step-circle">
+                <span class="step-icon">✍️</span>
+                <span class="step-num-pill">1</span>
+              </div>
+              <span class="step-label">Share Your Intention</span>
+              <span class="step-sublabel">Define your wish</span>
+            </button>
+
+            <!-- Step 2 Node -->
+            <button type="button" class="step-interactive-node" data-step="2" id="stepNode2">
+              <div class="step-circle">
+                <span class="step-icon">🌿</span>
+                <span class="step-num-pill">2</span>
+              </div>
+              <span class="step-label">Sacred Bay Leaf Ritual</span>
+              <span class="step-sublabel">Pooja guides alchemy</span>
+            </button>
+
+            <!-- Step 3 Node -->
+            <button type="button" class="step-interactive-node" data-step="3" id="stepNode3">
+              <div class="step-circle">
+                <span class="step-icon">✨</span>
+                <span class="step-num-pill">3</span>
+              </div>
+              <span class="step-label">Receive Guidance &amp; Achieve</span>
+              <span class="step-sublabel">Manifest into reality</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Step Tooltip / Detail Card -->
+          <div class="step-preview-card glass-panel" id="stepPreviewCard">
+            <div class="step-preview-avatar">
+              <div class="practitioner-avatar-badge" id="stepAvatarBadge">
+                <span>PG</span>
+              </div>
+              <div class="practitioner-meta">
+                <h4 id="stepPreviewTitle">Step 1: Share Your Intention</h4>
+                <p id="stepPreviewSubtitle">State your heartfelt wish or life goal clearly</p>
+              </div>
+            </div>
+            <div class="step-preview-body">
+              <p id="stepPreviewText">
+                Submit your specific goal in the form below. Pooja assesses your numerology vibration and tailors the exact sacred bay leaf intention phrasing suited for your energy.
+              </p>
+            </div>
+            <div class="step-preview-nav">
+              <button type="button" class="btn btn-outline-light btn-sm" id="prevStepBtn" disabled>← Previous Step</button>
+              <button type="button" class="btn btn-primary-gold btn-sm" id="nextStepBtn">Next Step →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. STREAMLINED REGISTRATION & FEE HIGHLIGHT BADGE -->
+    <!-- ========================================================================= -->
+    <section class="registration-clean-section" id="register">
+      <div class="container">
+        <div class="registration-clean-wrapper">
+          <!-- Subtle Glowing Glassmorphism Payment & Personal Connection Badge -->
+          <div class="fee-disclaimer-glass-badge glass-panel glow-border" id="session-fee">
+            <div class="badge-lock-col">
+              <div class="badge-lock-icon">🔒</div>
+            </div>
+            <div class="badge-content-col">
+              <div class="badge-tag-row">
+                <span class="badge-gold-pill">Personalized Ritual Exchange</span>
+                <span class="human-connect-tag">🤝 Human-to-Human</span>
+              </div>
+              <h4 class="badge-headline">
+                <strong>Important Notice:</strong> Every session is personalized and requires prior payment before starting.
+              </h4>
+              <p class="badge-subtext">
+                <strong>Personal Connection Note:</strong> We connect human-to-human. Once you register, we will reach out personally via WhatsApp/phone to arrange payment and onboard you.
+              </p>
+            </div>
+          </div>
+
+          <!-- Clean 4-Field Input Form -->
+          <div class="form-clean-card glass-panel">
+            <div class="form-title-center text-center">
+              <span class="form-glyph">✦</span>
+              <h2 class="form-main-heading">Set Your Manifestation Intention</h2>
+              <p class="form-main-sub">Complete these 4 simple fields to start your guided session.</p>
+            </div>
+
+            <form id="manifestationForm" novalidate>
+              <!-- Field 1: Full Name -->
+              <div class="clean-form-group">
+                <label for="fullName" class="clean-label">
+                  <span>Full Name</span>
+                  <span class="req-star">*</span>
+                </label>
+                <div class="clean-input-box">
+                  <span class="clean-input-icon">👤</span>
+                  <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    class="clean-input" 
+                    placeholder="e.g. Priyanshu Sharma" 
+                    required 
+                    autocomplete="name"
+                  >
+                </div>
+                <span class="clean-field-error" id="fullNameError"></span>
+              </div>
+
+              <!-- Field 2: Phone Number / WhatsApp -->
+              <div class="clean-form-group">
+                <label for="phone" class="clean-label">
+                  <span>Phone Number / WhatsApp</span>
+                  <span class="req-star">*</span>
+                </label>
+                <div class="clean-phone-row">
+                  <div class="clean-country-wrap">
+                    <select id="countryCode" name="countryCode" class="clean-country-select" aria-label="Country Code">
+                      <option value="+91" selected>🇮🇳 India (+91)</option>
+                      <option value="+1">🇺🇸 USA / Canada (+1)</option>
+                      <option value="+44">🇬🇧 UK (+44)</option>
+                      <option value="+971">🇦🇪 UAE (+971)</option>
+                      <option value="+65">🇸🇬 Singapore (+65)</option>
+                      <option value="+61">🇦🇺 Australia (+61)</option>
+                      <option value="+49">🇩🇪 Germany (+49)</option>
+                      <option value="+other">🌍 Other (+)</option>
+                    </select>
+                  </div>
+                  <div class="clean-input-box flex-1">
+                    <span class="clean-input-icon">📱</span>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone" 
+                      class="clean-input" 
+                      placeholder="e.g. 98765 43210 (WhatsApp)" 
+                      required 
+                      autocomplete="tel"
+                    >
+                  </div>
+                </div>
+                <span class="clean-field-error" id="phoneError"></span>
+              </div>
+
+              <!-- Field 3: Your Wish or Goal (Textarea) -->
+              <div class="clean-form-group">
+                <div class="label-with-chips">
+                  <label for="manifestationGoal" class="clean-label">
+                    <span>Your Wish or Goal</span>
+                    <span class="req-star">*</span>
+                  </label>
+                  <div class="quick-chip-tray">
+                    <button type="button" class="quick-chip-btn" data-text="Career growth &amp; financial flow">💼 Career</button>
+                    <button type="button" class="quick-chip-btn" data-text="Harmonious loving soulmate relationship">❤️ Love</button>
+                    <button type="button" class="quick-chip-btn" data-text="Emotional clarity &amp; deep inner peace">🧘 Peace</button>
+                    <button type="button" class="quick-chip-btn" data-text="Health vitality &amp; energy renewal">🌿 Health</button>
+                  </div>
+                </div>
+                <div class="clean-input-box textarea-box">
+                  <textarea 
+                    id="manifestationGoal" 
+                    name="manifestationGoal" 
+                    class="clean-textarea" 
+                    rows="3" 
+                    placeholder="Describe what you want to manifest or any obstacle you want cleared..." 
+                    required
+                  ></textarea>
+                </div>
+                <span class="clean-field-error" id="manifestationGoalError"></span>
+              </div>
+
+              <!-- Field 4: Target Timeline (Dropdown) -->
+              <div class="clean-form-group">
+                <label for="timeline" class="clean-label">
+                  <span>Target Timeline</span>
+                  <span class="req-star">*</span>
+                </label>
+                <div class="clean-input-box">
+                  <span class="clean-input-icon">⏳</span>
+                  <select id="timeline" name="timeline" class="clean-select" required>
+                    <option value="Within 21 Days (Rapid Shift)" selected>Within 21 Days (Rapid Shift)</option>
+                    <option value="Within 1 Month (Deep Transformation)">Within 1 Month (Deep Transformation)</option>
+                    <option value="Within 3 Months (Complete Realignment)">Within 3 Months (Complete Realignment)</option>
+                    <option value="Within 6 Months (Mastery &amp; Flow)">Within 6 Months (Mastery &amp; Flow)</option>
+                    <option value="Urgent / Specific Milestone">Urgent / Specific Milestone</option>
+                  </select>
+                </div>
+                <span class="clean-field-error" id="timelineError"></span>
+              </div>
+
+              <!-- Submit CTA Button with Soft Particle Sparks -->
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-submit-intention" id="submitBtn">
+                  <span class="btn-sparkle-left">✨</span>
+                  <span class="btn-text">[ SUBMIT INTENTION ]</span>
+                  <span class="btn-sparkle-right">✨</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <div class="privacy-guarantee-note text-center">
+                <span>🔒 100% Private &amp; Secure • Exclusively accessed by Pooja Garg</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- ANIMATED SUCCESS MODAL (5. DATA PRIVACY & BACKEND) -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-card glass-panel glow-border">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Confirmation">&times;</button>
+      
+      <div class="modal-icon-header">
+        <div class="modal-sacred-glow">
+          <span class="sacred-checkmark">✨</span>
+        </div>
+      </div>
+
+      <h3 class="modal-title" id="modalTitle">Intention Charged</h3>
+
+      <div class="modal-message-box">
+        <p class="modal-main-text">
+          <strong>Your intention has been set!</strong>
+        </p>
+        <p class="modal-sub-text">
+          Pooja Garg will reach out personally on WhatsApp/Phone shortly.
+        </p>
+      </div>
+
+      <div class="modal-details-summary" id="modalDetailsSummary">
+        <!-- Dynamically populated applicant info -->
+      </div>
+
+      <div class="modal-actions">
+        <a href="https://wa.me/?text=Hello%20Pooja%20Garg,%20I%20just%20submitted%20my%20manifestation%20intention%20on%20SoulSync!" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-whatsapp btn-block" 
+           id="instantWhatsAppBtn">
+          <span>Message Pooja Directly on WhatsApp ↗</span>
+        </a>
+        <button class="btn btn-outline-light btn-block" id="closeModalActionBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="footer-mark">ॐ</span>
+          <span class="footer-title">SoulSync</span>
+        </div>
+        <p class="footer-bio">
+          Bay Leaf Manifestation by <strong>Pooja Garg</strong> — Prana Healing Trainer, Certified Numerologist, &amp; Master Tarot Card Reader.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Energy Orb</a></li>
+          <li><a href="#about-pooja">About Pooja</a></li>
+          <li><a href="#benefits">Direct Benefits</a></li>
+          <li><a href="#process">3-Step Flow</a></li>
+          <li><a href="#session-fee">Fee &amp; Connect</a></li>
+          <li><a href="#register">Set Intention</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Admin &amp; Inquiries</h4>
+        <div class="footer-status-pill">
+          <span class="status-indicator"></span>
+          <span>Online &amp; Receiving Intentions</span>
+        </div>
+        <div class="admin-access-link-wrap">
+          <a href="/admin" class="admin-portal-link" target="_blank">
+            <span class="admin-icon">🔑</span>
+            <span>Master Admin (Pooja Garg Portal)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 SoulSync by Pooja Garg. All sacred rights reserved.</p>
+        <p class="disclaimer">Energy practices complement mindful dedication and personal aligned action.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

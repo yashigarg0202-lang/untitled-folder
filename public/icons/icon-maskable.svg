@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGradMask" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#261F38"/>
+      <stop offset="100%" stop-color="#0E0C14"/>
+    </radialGradient>
+    <linearGradient id="goldGradMask" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2C6"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8E600F"/>
+    </linearGradient>
+    <linearGradient id="leafFillMask" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#52B788"/>
+      <stop offset="100%" stop-color="#1B4332"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Full Bleed Background for Maskable Icon Safe Zone -->
+  <rect width="512" height="512" fill="url(#bgGradMask)"/>
+  <circle cx="256" cy="256" r="180" stroke="url(#goldGradMask)" stroke-width="3" stroke-dasharray="6 6" opacity="0.4"/>
+
+  <!-- Bay Leaf in Safe Zone -->
+  <path d="M256 110 C256 110 360 180 360 270 C360 340 310 390 256 405 C202 390 152 340 152 270 C152 180 256 110 256 110 Z"
+        fill="url(#leafFillMask)" stroke="url(#goldGradMask)" stroke-width="5"/>
+
+  <!-- Veins -->
+  <path d="M256 130 L256 395" stroke="#FFF2C6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M256 185 L315 220 M256 235 L330 270 M256 285 L335 320" stroke="#FFF2C6" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+  <path d="M256 185 L197 220 M256 235 L182 270 M256 285 L177 320" stroke="#FFF2C6" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+
+  <circle cx="256" cy="265" r="22" fill="#FFFBE6"/>
+  <text x="256" y="274" text-anchor="middle" font-family="'Cinzel', Georgia, serif" font-size="22" fill="#6B4B00" font-weight="bold">ॐ</text>
+</svg>
